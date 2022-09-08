@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import CartContainer from "./components/CartContainer";
+import { useGlobalContext } from "./components/Context";
+import Navbar from "./components/Navbar";
 
 function App() {
+  const { loading } = useGlobalContext();
+
+  if (loading) {
+    return (
+      <div className="Loading">
+        <p className="Loading__text">Loading....</p>
+      </div>
+    );
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <CartContainer />
+    </>
   );
 }
 
