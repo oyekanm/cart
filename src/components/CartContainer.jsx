@@ -1,9 +1,11 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import CartItem from "./CartItem";
-import { useGlobalContext } from "./Context";
+// import { clearCart } from "../Features/CartSlice";
 
 function CartContainer() {
-  const { cart, total, clearCart } = useGlobalContext();
+  const dispatch = useDispatch();
+  const { cart, total } = useSelector((store) => store.cart);
 
   if (cart.length === 0) {
     return (
@@ -29,9 +31,13 @@ function CartContainer() {
       <footer>
         <hr></hr>
         <div className="cart-total">
-          <div className="total">Total</div>$ {total}
+          <div className="total">Total</div>
+          <span>${total.toFixed(2)}</span>
         </div>
-        <button onClick={clearCart} className="btn clear-btn">
+        <button
+          onClick={() => dispatch({ type: "CLEAR__CART" })}
+          className="btn clear-btn"
+        >
           Clear cart
         </button>
       </footer>

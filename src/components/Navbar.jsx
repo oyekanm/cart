@@ -1,8 +1,9 @@
 import React from "react";
-import { useGlobalContext } from "./Context";
+import { useSelector } from "react-redux";
 
 function Navbar() {
-  const { amount } = useGlobalContext();
+  const { amount } = useSelector((store) => store.cart);
+
   return (
     <nav className="Nav">
       <div className="Nav__objects">
@@ -16,6 +17,7 @@ function Navbar() {
           </div>
           <div className="Nav__items">
             <p>{amount}</p>
+            {/* <p>{amount}</p> */}
           </div>
         </div>
       </div>
