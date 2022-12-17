@@ -67,6 +67,63 @@ img {
   ===============
   */
 
+.Modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  transition: var(--transition);
+}
+.Modal__container {
+  background-color: #fff;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 4rem 2.5rem;
+  position: absolute;
+}
+.Modal__text {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.Modal--buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.Modal__btn {
+  padding: 0.5rem 1rem;
+  margin: 0 5px !important;
+  font-size: 25px !important;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px !important;
+  transition: var(--transition);
+}
+.Modal__btn:hover {
+  color: #fff !important;
+}
+.confirm-btn {
+  color: purple;
+  letter-spacing: var(--spacing);
+  cursor: pointer;
+  font-size: 0.85rem;
+  background: transparent;
+  border: 1px solid purple;
+  margin-top: 0.375rem;
+}
+.confirm-btn:hover {
+  background: rgb(226, 12, 226);
+}
 nav {
   background: purple;
   padding: 1.25rem 2rem;
