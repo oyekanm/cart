@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { totals } from "./Features/CartSlice";
+import { totals, getCartItems } from "./Features/CartSlice";
 import Navbar from "./components/Navbar";
 import CartContainer from "./components/CartContainer";
 import Modal from "./components/Modal";
@@ -14,6 +14,10 @@ function App() {
   useEffect(() => {
     dispatch(totals());
   }, [cart]);
+
+  useEffect(() => {
+    dispatch(getCartItems());
+  }, []);
 
   if (loading) {
     return (
